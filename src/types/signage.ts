@@ -17,6 +17,7 @@ export interface Playlist {
   itemCount: number;
   updatedAtLabel: string;
   previewColors: string[];
+  contentItemIds: string[];
 }
 
 export type ActivityType = 'heartbeat' | 'playlist-updated' | 'connection-lost';

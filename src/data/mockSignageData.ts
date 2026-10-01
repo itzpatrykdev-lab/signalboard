@@ -113,6 +113,12 @@ export const playlists: Playlist[] = [
     itemCount: 6,
     updatedAtLabel: 'Updated 12 minutes ago',
     previewColors: ['#2554e8', '#0ea5a4', '#8b5cf6', '#f59e0b'],
+    contentItemIds: [
+  'content-welcome',
+  'content-weather',
+  'content-event-schedule',
+  'content-office-photo',
+],
   },
   {
     id: 'playlist-training',
@@ -122,6 +128,10 @@ export const playlists: Playlist[] = [
     itemCount: 4,
     updatedAtLabel: 'Updated yesterday',
     previewColors: ['#0891b2', '#2563eb', '#14b8a6', '#84cc16'],
+    contentItemIds: [
+  'content-event-schedule',
+  'content-company-news',
+],
   },
   {
     id: 'playlist-executive-updates',
@@ -131,6 +141,10 @@ export const playlists: Playlist[] = [
     itemCount: 5,
     updatedAtLabel: 'Updated 2 days ago',
     previewColors: ['#312e81', '#7c3aed', '#a855f7', '#ec4899'],
+    contentItemIds: [
+  'content-company-news',
+  'content-welcome',
+],
   },
   {
     id: 'playlist-wellness',
@@ -140,7 +154,12 @@ export const playlists: Playlist[] = [
     itemCount: 3,
     updatedAtLabel: 'Updated 4 days ago',
     previewColors: ['#15803d', '#22c55e', '#65a30d', '#eab308'],
+    contentItemIds: [
+  'content-wellness',
+  'content-weather',
+],
   },
+
 ];
 
 export const contentItems: ContentItem[] = [
