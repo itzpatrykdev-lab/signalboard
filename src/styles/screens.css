@@ -131,10 +131,6 @@
   border-bottom: 0;
 }
 
-.display-table tbody tr:hover {
-  background: #fafcff;
-}
-
 .display-table__screen-name,
 .display-table__screen-id {
   display: block;
@@ -179,4 +175,12 @@
   .status-filters {
     justify-content: flex-start;
   }
+}
+
+.display-table__row {
+  cursor: pointer;
+}
+
+.display-table__row:hover {
+  background: #fafcff;
 }

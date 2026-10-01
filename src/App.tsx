@@ -1,10 +1,11 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import AppLayout from './components/layout/AppLayout';
-import ContentPage from './pages/ContentPage';
-import DashboardPage from './pages/DashboardPage';
-import PlayerPage from './pages/PlayerPage';
-import PlaylistsPage from './pages/PlaylistsPage';
-import ScreensPage from './pages/ScreensPage';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AppLayout from "./components/layout/AppLayout";
+import ContentPage from "./pages/ContentPage";
+import DashboardPage from "./pages/DashboardPage";
+import PlayerPage from "./pages/PlayerPage";
+import PlaylistsPage from "./pages/PlaylistsPage";
+import ScreenDetailsPage from "./pages/ScreenDetailsPage";
+import ScreensPage from "./pages/ScreensPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         </Route>
 
         <Route path="player/:screenId" element={<PlayerPage />} />
+        <Route path="screens/:screenId" element={<ScreenDetailsPage />} />
       </Routes>
     </BrowserRouter>
   );

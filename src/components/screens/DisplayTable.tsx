@@ -1,6 +1,7 @@
-import StatusBadge from '../StatusBadge';
-import type { Playlist, SignageScreen } from '../../types/signage';
-import { getPlaylistName } from '../../utils/playlistHelpers';
+import StatusBadge from "../StatusBadge";
+import type { Playlist, SignageScreen } from "../../types/signage";
+import { getPlaylistName } from "../../utils/playlistHelpers";
+import { useNavigate } from "react-router-dom";
 
 interface DisplayTableProps {
   screens: SignageScreen[];
@@ -8,6 +9,7 @@ interface DisplayTableProps {
 }
 
 function DisplayTable({ screens, playlists }: DisplayTableProps) {
+  const navigate = useNavigate();
   if (screens.length === 0) {
     return (
       <section className="empty-state">
@@ -32,9 +34,15 @@ function DisplayTable({ screens, playlists }: DisplayTableProps) {
 
         <tbody>
           {screens.map((screen) => (
-            <tr key={screen.id}>
+            <tr
+              className="display-table__row"
+              key={screen.id}
+              onClick={() => navigate(`/screens/${screen.id}`)}
+            >
               <td>
-                <span className="display-table__screen-name">{screen.name}</span>
+                <span className="display-table__screen-name">
+                  {screen.name}
+                </span>
                 <span className="display-table__screen-id">{screen.id}</span>
               </td>
               <td>{screen.location}</td>
