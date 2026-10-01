@@ -1,0 +1,162 @@
+import type {
+  DeviceActivity,
+  Playlist,
+  SignageScreen,
+} from '../types/signage';
+
+export const screens: SignageScreen[] = [
+  {
+    id: 'screen-lobby',
+    name: 'Lobby Display',
+    location: 'Main Entrance',
+    status: 'online',
+    lastSeenLabel: 'Just now',
+    activePlaylistId: 'playlist-morning-office',
+  },
+  {
+    id: 'screen-conference-a',
+    name: 'Conference Room A',
+    location: 'Floor 2',
+    status: 'online',
+    lastSeenLabel: '1 minute ago',
+    activePlaylistId: 'playlist-morning-office',
+  },
+  {
+    id: 'screen-break-room',
+    name: 'Break Room TV',
+    location: 'Floor 2',
+    status: 'warning',
+    lastSeenLabel: '6 minutes ago',
+    activePlaylistId: 'playlist-morning-office',
+  },
+  {
+    id: 'screen-reception',
+    name: 'Reception Display',
+    location: 'Front Desk',
+    status: 'offline',
+    lastSeenLabel: '24 minutes ago',
+    activePlaylistId: null,
+  },
+  {
+    id: 'screen-training',
+    name: 'Training Room',
+    location: 'Floor 1',
+    status: 'online',
+    lastSeenLabel: 'Just now',
+    activePlaylistId: 'playlist-training',
+  },
+  {
+    id: 'screen-kitchen',
+    name: 'Kitchen Display',
+    location: 'Floor 1',
+    status: 'online',
+    lastSeenLabel: '2 minutes ago',
+    activePlaylistId: 'playlist-morning-office',
+  },
+  {
+    id: 'screen-hallway-east',
+    name: 'East Hallway',
+    location: 'Floor 2',
+    status: 'online',
+    lastSeenLabel: 'Just now',
+    activePlaylistId: 'playlist-morning-office',
+  },
+  {
+    id: 'screen-hallway-west',
+    name: 'West Hallway',
+    location: 'Floor 2',
+    status: 'online',
+    lastSeenLabel: '3 minutes ago',
+    activePlaylistId: 'playlist-morning-office',
+  },
+  {
+    id: 'screen-executive',
+    name: 'Executive Lounge',
+    location: 'Floor 3',
+    status: 'online',
+    lastSeenLabel: 'Just now',
+    activePlaylistId: 'playlist-executive-updates',
+  },
+  {
+    id: 'screen-lounge',
+    name: 'Employee Lounge',
+    location: 'Floor 1',
+    status: 'online',
+    lastSeenLabel: '1 minute ago',
+    activePlaylistId: 'playlist-morning-office',
+  },
+  {
+    id: 'screen-gym',
+    name: 'Wellness Room',
+    location: 'Floor 1',
+    status: 'online',
+    lastSeenLabel: '2 minutes ago',
+    activePlaylistId: 'playlist-wellness',
+  },
+  {
+    id: 'screen-parking',
+    name: 'Parking Entrance',
+    location: 'Garage Level',
+    status: 'online',
+    lastSeenLabel: 'Just now',
+    activePlaylistId: 'playlist-morning-office',
+  },
+];
+
+export const playlists: Playlist[] = [
+  {
+    id: 'playlist-morning-office',
+    name: 'Morning Office Loop',
+    screenCount: 8,
+    itemCount: 6,
+  },
+  {
+    id: 'playlist-training',
+    name: 'Training Room Schedule',
+    screenCount: 1,
+    itemCount: 4,
+  },
+  {
+    id: 'playlist-executive-updates',
+    name: 'Executive Updates',
+    screenCount: 1,
+    itemCount: 5,
+  },
+  {
+    id: 'playlist-wellness',
+    name: 'Wellness Room Loop',
+    screenCount: 1,
+    itemCount: 3,
+  },
+];
+
+export const deviceActivity: DeviceActivity[] = [
+  {
+    id: 'activity-1',
+    screenId: 'screen-lobby',
+    screenName: 'Lobby Display',
+    type: 'heartbeat',
+    occurredAtLabel: '10:31 AM',
+  },
+  {
+    id: 'activity-2',
+    screenId: 'screen-conference-a',
+    screenName: 'Conference Room A',
+    type: 'playlist-updated',
+    occurredAtLabel: '10:29 AM',
+  },
+  {
+    id: 'activity-3',
+    screenId: 'screen-reception',
+    screenName: 'Reception Display',
+    type: 'connection-lost',
+    occurredAtLabel: '10:25 AM',
+  },
+  {
+    id: 'activity-4',
+    screenId: 'screen-break-room',
+    screenName: 'Break Room TV',
+    type: 'heartbeat',
+    occurredAtLabel: '10:21 AM',
+  },
+];
