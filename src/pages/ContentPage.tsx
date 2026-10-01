@@ -1,22 +1,24 @@
-import { useMemo, useState } from 'react';
-import ContentCard from '../components/content/ContentCard';
-import { contentItems } from '../data/mockSignageData';
-import type { ContentType } from '../types/signage';
-import '../styles/content.css';
+import { useMemo, useState } from "react";
+import ContentCard from "../components/content/ContentCard";
+import { useSignalBoard } from "../context/SignalBoardContext";
+import type { ContentType } from "../types/signage";
+import "../styles/content.css";
 
-type ContentFilter = 'all' | ContentType;
+type ContentFilter = "all" | ContentType;
 
 const contentFilters: { label: string; value: ContentFilter }[] = [
-  { label: 'All content', value: 'all' },
-  { label: 'Announcements', value: 'announcement' },
-  { label: 'Images', value: 'image' },
-  { label: 'Weather', value: 'weather' },
-  { label: 'Calendar', value: 'calendar' },
+  { label: "All content", value: "all" },
+  { label: "Announcements", value: "announcement" },
+  { label: "Images", value: "image" },
+  { label: "Weather", value: "weather" },
+  { label: "Calendar", value: "calendar" },
 ];
 
 function ContentPage() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [typeFilter, setTypeFilter] = useState<ContentFilter>('all');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [typeFilter, setTypeFilter] = useState<ContentFilter>("all");
+
+  const { contentItems } = useSignalBoard();
 
   const filteredContent = useMemo(() => {
     const normalizedQuery = searchQuery.trim().toLowerCase();
@@ -26,11 +28,11 @@ function ContentPage() {
         item.title.toLowerCase().includes(normalizedQuery) ||
         item.description.toLowerCase().includes(normalizedQuery);
 
-      const matchesType = typeFilter === 'all' || item.type === typeFilter;
+      const matchesType = typeFilter === "all" || item.type === typeFilter;
 
       return matchesSearch && matchesType;
     });
-  }, [searchQuery, typeFilter]);
+  }, [searchQuery, typeFilter, contentItems]);
 
   return (
     <div className="content-page">
@@ -64,8 +66,8 @@ function ContentPage() {
             <button
               className={`content-filter-button${
                 typeFilter === filter.value
-                  ? ' content-filter-button--active'
-                  : ''
+                  ? " content-filter-button--active"
+                  : ""
               }`}
               key={filter.value}
               onClick={() => setTypeFilter(filter.value)}

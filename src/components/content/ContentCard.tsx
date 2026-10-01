@@ -3,12 +3,15 @@ import {
   contentTypeLabels,
   contentTypeSymbols,
 } from "../../utils/contentPresentation";
+import { useSignalBoard } from "../../context/SignalBoardContext";
 
 interface ContentCardProps {
   item: ContentItem;
 }
 
 function ContentCard({ item }: ContentCardProps) {
+  const { setContentStatus } = useSignalBoard();
+
   return (
     <article className="content-card">
       <div
@@ -41,6 +44,18 @@ function ContentCard({ item }: ContentCardProps) {
           <span>{item.durationSeconds}s duration</span>
           <span>{item.updatedAtLabel}</span>
         </div>
+        <button
+          className="content-card__status-button"
+          onClick={() =>
+            setContentStatus(
+              item.id,
+              item.status === "published" ? "draft" : "published",
+            )
+          }
+          type="button"
+        >
+          Mark as {item.status === "published" ? "draft" : "published"}
+        </button>
       </div>
     </article>
   );
