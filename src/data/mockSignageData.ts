@@ -107,26 +107,38 @@ export const playlists: Playlist[] = [
   {
     id: 'playlist-morning-office',
     name: 'Morning Office Loop',
+    description: 'Daily announcements, weather, and workplace updates.',
     screenCount: 8,
     itemCount: 6,
+    updatedAtLabel: 'Updated 12 minutes ago',
+    previewColors: ['#2554e8', '#0ea5a4', '#8b5cf6', '#f59e0b'],
   },
   {
     id: 'playlist-training',
     name: 'Training Room Schedule',
+    description: 'Class schedules, room availability, and training reminders.',
     screenCount: 1,
     itemCount: 4,
+    updatedAtLabel: 'Updated yesterday',
+    previewColors: ['#0891b2', '#2563eb', '#14b8a6', '#84cc16'],
   },
   {
     id: 'playlist-executive-updates',
     name: 'Executive Updates',
+    description: 'Leadership messages and company performance highlights.',
     screenCount: 1,
     itemCount: 5,
+    updatedAtLabel: 'Updated 2 days ago',
+    previewColors: ['#312e81', '#7c3aed', '#a855f7', '#ec4899'],
   },
   {
     id: 'playlist-wellness',
     name: 'Wellness Room Loop',
+    description: 'Wellness guidance, class times, and motivational content.',
     screenCount: 1,
     itemCount: 3,
+    updatedAtLabel: 'Updated 4 days ago',
+    previewColors: ['#15803d', '#22c55e', '#65a30d', '#eab308'],
   },
 ];
 

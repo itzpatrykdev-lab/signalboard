@@ -12,8 +12,11 @@ export interface SignageScreen {
 export interface Playlist {
   id: string;
   name: string;
+  description: string;
   screenCount: number;
   itemCount: number;
+  updatedAtLabel: string;
+  previewColors: string[];
 }
 
 export type ActivityType = 'heartbeat' | 'playlist-updated' | 'connection-lost';
