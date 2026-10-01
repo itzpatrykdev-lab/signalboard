@@ -1,4 +1,5 @@
-import type { Playlist } from '../../types/signage';
+import type { Playlist } from "../../types/signage";
+import { Link } from "react-router-dom";
 
 interface PlaylistCardProps {
   playlist: Playlist;
@@ -25,7 +26,7 @@ function PlaylistCard({ playlist }: PlaylistCardProps) {
           </div>
 
           <span className="playlist-card__status">
-            {playlist.screenCount > 0 ? 'Published' : 'Draft'}
+            {playlist.screenCount > 0 ? "Published" : "Draft"}
           </span>
         </div>
 
@@ -37,9 +38,9 @@ function PlaylistCard({ playlist }: PlaylistCardProps) {
         <div className="playlist-card__footer">
           <span>{playlist.updatedAtLabel}</span>
 
-          <button className="text-button" type="button">
+          <Link className="text-button" to={`/playlists/${playlist.id}`}>
             View playlist →
-          </button>
+          </Link>
         </div>
       </div>
     </article>
