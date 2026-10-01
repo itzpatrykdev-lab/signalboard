@@ -1,15 +1,14 @@
-import MetricCard from '../components/dashboard/MetricCard';
-import PlaylistCard from '../components/playlists/PlaylistCard';
-import { playlists } from '../data/mockSignageData';
-import '../styles/playlists.css';
+import MetricCard from "../components/dashboard/MetricCard";
+import PlaylistCard from "../components/playlists/PlaylistCard";
+import { playlists, screens } from "../data/mockSignageData";
+import "../styles/playlists.css";
 
 function PlaylistsPage() {
-  const publishedPlaylists = playlists.filter(
-    (playlist) => playlist.screenCount > 0,
+  const publishedPlaylists = playlists.filter((playlist) =>
+    screens.some((screen) => screen.activePlaylistId === playlist.id),
   );
-
   const totalContentItems = playlists.reduce(
-    (total, playlist) => total + playlist.itemCount,
+    (total, playlist) => total + playlist.contentItemIds.length,
     0,
   );
 
@@ -52,7 +51,11 @@ function PlaylistsPage() {
 
       <section className="playlist-grid" aria-label="Available playlists">
         {playlists.map((playlist) => (
-          <PlaylistCard key={playlist.id} playlist={playlist} />
+          <PlaylistCard
+            key={playlist.id}
+            playlist={playlist}
+            screens={screens}
+          />
         ))}
       </section>
     </div>

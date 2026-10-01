@@ -1,22 +1,18 @@
-import ActivityFeed from '../components/dashboard/ActivityFeed';
-import ActivePlaylistCard from '../components/dashboard/ActivePlaylistCard';
-import MetricCard from '../components/dashboard/MetricCard';
-import ScreenNetworkCard from '../components/dashboard/ScreenNetworkCard';
-import {
-  deviceActivity,
-  playlists,
-  screens,
-} from '../data/mockSignageData';
-import '../styles/dashboard.css';
+import ActivityFeed from "../components/dashboard/ActivityFeed";
+import ActivePlaylistCard from "../components/dashboard/ActivePlaylistCard";
+import MetricCard from "../components/dashboard/MetricCard";
+import ScreenNetworkCard from "../components/dashboard/ScreenNetworkCard";
+import { deviceActivity, playlists, screens } from "../data/mockSignageData";
+import "../styles/dashboard.css";
 
 function DashboardPage() {
-  const onlineScreens = screens.filter((screen) => screen.status === 'online');
+  const onlineScreens = screens.filter((screen) => screen.status === "online");
   const attentionScreens = screens.filter(
-    (screen) => screen.status === 'warning' || screen.status === 'offline',
+    (screen) => screen.status === "warning" || screen.status === "offline",
   );
 
   const primaryPlaylist = playlists.find(
-    (playlist) => playlist.id === 'playlist-morning-office',
+    (playlist) => playlist.id === "playlist-morning-office",
   );
 
   return (
@@ -26,7 +22,8 @@ function DashboardPage() {
           <p className="section-eyebrow">Operations overview</p>
           <h1>Overview</h1>
           <p className="page-heading__description">
-            Monitor screen health, playlist delivery, and recent player activity.
+            Monitor screen health, playlist delivery, and recent player
+            activity.
           </p>
         </div>
 
@@ -64,7 +61,7 @@ function DashboardPage() {
 
       <section className="dashboard-grid">
         <ScreenNetworkCard screens={screens} />
-        <ActivePlaylistCard playlist={primaryPlaylist} />
+        <ActivePlaylistCard playlist={primaryPlaylist} screens={screens} />
       </section>
 
       <ActivityFeed activity={deviceActivity} />

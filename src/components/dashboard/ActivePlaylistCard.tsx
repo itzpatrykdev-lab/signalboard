@@ -1,10 +1,11 @@
-import type { Playlist } from '../../types/signage';
+import type { Playlist, SignageScreen } from "../../types/signage";
 
 interface ActivePlaylistCardProps {
   playlist: Playlist | undefined;
+  screens: SignageScreen[];
 }
 
-function ActivePlaylistCard({ playlist }: ActivePlaylistCardProps) {
+function ActivePlaylistCard({ playlist, screens }: ActivePlaylistCardProps) {
   if (!playlist) {
     return (
       <section className="dashboard-card active-playlist-card">
@@ -16,6 +17,10 @@ function ActivePlaylistCard({ playlist }: ActivePlaylistCardProps) {
       </section>
     );
   }
+
+  const assignedScreenCount = screens.filter(
+    (screen) => screen.activePlaylistId === playlist.id,
+  ).length;
 
   return (
     <section className="dashboard-card active-playlist-card">
@@ -29,7 +34,8 @@ function ActivePlaylistCard({ playlist }: ActivePlaylistCardProps) {
         <div>
           <h2>{playlist.name}</h2>
           <p className="active-playlist-card__description">
-            {playlist.itemCount} items · {playlist.screenCount} screens assigned
+            {playlist.contentItemIds.length} items · {assignedScreenCount}{" "}
+            screens assigned
           </p>
         </div>
       </div>

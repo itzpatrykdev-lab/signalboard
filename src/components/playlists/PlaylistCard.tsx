@@ -1,11 +1,16 @@
-import type { Playlist } from "../../types/signage";
 import { Link } from "react-router-dom";
+import type { Playlist, SignageScreen } from "../../types/signage";
 
 interface PlaylistCardProps {
   playlist: Playlist;
+  screens: SignageScreen[];
 }
 
-function PlaylistCard({ playlist }: PlaylistCardProps) {
+function PlaylistCard({ playlist, screens }: PlaylistCardProps) {
+  const assignedScreenCount = screens.filter(
+    (screen) => screen.activePlaylistId === playlist.id,
+  ).length;
+
   return (
     <article className="playlist-card">
       <div className="playlist-card__preview" aria-hidden="true">
@@ -26,13 +31,13 @@ function PlaylistCard({ playlist }: PlaylistCardProps) {
           </div>
 
           <span className="playlist-card__status">
-            {playlist.screenCount > 0 ? "Published" : "Draft"}
+            {assignedScreenCount > 0 ? "Published" : "Draft"}
           </span>
         </div>
 
         <div className="playlist-card__metadata">
-          <span>{playlist.itemCount} items</span>
-          <span>{playlist.screenCount} screens assigned</span>
+          <span>{playlist.contentItemIds.length} items</span>
+          <span>{assignedScreenCount} screens assigned</span>
         </div>
 
         <div className="playlist-card__footer">

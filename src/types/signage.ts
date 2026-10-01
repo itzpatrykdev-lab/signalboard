@@ -1,4 +1,4 @@
-export type ScreenStatus = 'online' | 'warning' | 'offline';
+export type ScreenStatus = "online" | "warning" | "offline";
 
 export interface SignageScreen {
   id: string;
@@ -13,14 +13,12 @@ export interface Playlist {
   id: string;
   name: string;
   description: string;
-  screenCount: number;
-  itemCount: number;
   updatedAtLabel: string;
   previewColors: string[];
   contentItemIds: string[];
 }
 
-export type ActivityType = 'heartbeat' | 'playlist-updated' | 'connection-lost';
+export type ActivityType = "heartbeat" | "playlist-updated" | "connection-lost";
 
 export interface DeviceActivity {
   id: string;
@@ -30,9 +28,9 @@ export interface DeviceActivity {
   occurredAtLabel: string;
 }
 
-export type ContentType = 'announcement' | 'image' | 'weather' | 'calendar';
+export type ContentType = "announcement" | "image" | "weather" | "calendar";
 
-export type ContentStatus = 'published' | 'draft';
+export type ContentStatus = "published" | "draft";
 
 export interface ContentItem {
   id: string;
