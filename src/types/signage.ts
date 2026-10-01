@@ -28,3 +28,18 @@ export interface DeviceActivity {
   type: ActivityType;
   occurredAtLabel: string;
 }
+
+export type ContentType = 'announcement' | 'image' | 'weather' | 'calendar';
+
+export type ContentStatus = 'published' | 'draft';
+
+export interface ContentItem {
+  id: string;
+  title: string;
+  type: ContentType;
+  status: ContentStatus;
+  updatedAtLabel: string;
+  durationSeconds: number;
+  description: string;
+  accentColor: string;
+}
